@@ -1,0 +1,51 @@
+#example1 {
+    border: 2px solid #999;
+	margin: 150px auto 0;
+}
+
+#example1 li {
+	text-align: center;
+    border-style: solid;
+	border-width: 8px;
+	overflow: hidden;
+    float: left;
+	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	
+}
+#example1 li p {
+	line-height: 150px;
+	font-size: 3em;
+	font-weight: bolder;
+	text-transform:capitalize;
+}
+
+
+#example2 {
+    border: 2px solid #999;
+	margin: 0 auto;
+}
+
+#example2 a {
+    border: 1px solid #aaa;
+	text-align: center;
+    background: #eee;
+    overflow: hidden;
+    float: left;
+    margin: 10px;
+}
+
+#example2 a img {
+    border: none;
+}
+
+#example3 {
+    border: 2px solid #999;
+	margin: 0 auto;
+}
+
+#example3 div.boxes {
+	float: left;
+}

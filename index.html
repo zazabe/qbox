@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>qBox jQuery plugin demo</title>
+        <link href="css/reset.css" type="text/css" rel="stylesheet">
+        <link href="css/demo.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>qBox jQuery plugin demo (3x3 boxs)</h1>
+        
+		<h2>Default example</h2>
+		
+        <div id="demo1">
+            <style type="text/css">
+                #example1 {
+                    width: 558px;
+                    height: 558px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                
+                #example1 li {
+                    width: 150px;
+                    height: 150px;
+                    margin: 10px;
+                }
+            </style>
+			
+            <a class="debug-mode" href="#" title="demonstration with outside box positions"><span>show</span> outside box positions</a>
+            <a class="resume-pause" href="#" title="demonstration pause/resume"><span>pause</span> the animation</a>
+            
+			<div id="example1" class="demos">
+                <ul>
+                    <li>
+                        <p>
+                            box 1
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 2
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 3
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 4
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 5
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 6
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 7
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 8
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 9
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 10
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 11
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            box 12
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        
+		</div>
+		
+        <h2>Example with a > img elements (1x3 boxs)</h2>
+        
+		<div id="demo2">
+            <style type="text/css">
+                #example2 {
+                    width: 516px;
+                    height: 172px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                
+                #example2 a {
+                    width: 150px;
+                    height: 150px;
+                    display: block;
+                }
+            </style>
+            <a class="debug-mode" href="#" title="demonstration with outside box positions"><span>show</span> outside box positions</a>
+            <a class="resume-pause" href="#" title="demonstration pause/resume"><span>pause</span> the animation</a>
+            
+			<div id="example2" class="demos">
+                <ul>
+                    <a href="images/img-1.jpg"><img src="images/img-1.jpg" /></a><a href="images/img-2.jpg"><img src="images/img-2.jpg" /></a><a href="images/img-3.jpg"><img src="images/img-3.jpg" /></a><a href="images/img-4.jpg"><img src="images/img-4.jpg" /></a><a href="images/img-5.jpg"><img src="images/img-5.jpg" /></a><a href="images/img-6.jpg"><img src="images/img-6.jpg" /></a><a href="images/img-7.jpg"><img src="images/img-7.jpg" /></a><a href="images/img-8.jpg"><img src="images/img-8.jpg" /></a><a href="images/img-9.jpg"><img src="images/img-9.jpg" /></a><a href="images/img-10.jpg"><img src="images/img-10.jpg" /></a><a href="images/img-11.jpg"><img src="images/img-11.jpg" /></a><a href="images/img-12.jpg"><img src="images/img-12.jpg" /></a><a href="images/img-13.jpg"><img src="images/img-13.jpg" /></a><a href="images/img-14.jpg"><img src="images/img-14.jpg" /></a><a href="images/img-15.jpg"><img src="images/img-15.jpg" /></a>
+                </ul>
+            </div>
+        </div>
+		
+		 <h2>Example with many boxes (10x10 boxs)</h2>
+		 
+		<div id="demo3">
+            <style type="text/css">
+                #example3 {
+                    width: 500px;
+                    height: 500px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                
+                #example3 div.boxes {
+                    width: 25px;
+                    height: 25px;
+					margin:0;
+					padding:0;
+                    display: block;
+                }
+            </style>
+			
+            <a class="debug-mode" href="#" title="demonstration with outside box positions"><span>show</span> outside box positions</a>
+            <a class="resume-pause" href="#" title="demonstration pause/resume"><span>pause</span> the animation</a>
+            
+			<div id="example3" class="demos">
+				
+			</div>
+        </div>
+
+        <script type="text/javascript" src="js/jquery.js">
+        </script>
+        <script type="text/javascript" src="js/qcolor.js">
+        </script>
+		<script type="text/javascript" src="js/qtime.js">
+        </script>
+        <script type="text/javascript" src="js/qbox.js">
+        </script>
+        <script type="text/javascript" src="js/demo.js">
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                //qbox instanciation
+                $('#example1').qbox({
+					slide: {
+						effect:    'linear',
+						duration:  400,
+						from:      'all',     //can be all, top, right, bottom or left
+						by:        'desc',  //can be random, asc or desc 
+						custom:    function(){
+							var position = [2, 6, 9, 5];
+							
+							this.boxes.outside.current = this.boxes.outside.current+1 < position.length
+													   ? this.boxes.outside.current+1
+												   	   : 0;
+							return position[this.boxes.outside.current];
+						}
+					},                   
+					box: {
+						selector: 'li',  //box jQuery selector
+						rows:     3,     //number of row
+						cols:     3      //number by row
+					},
+					qtime: {
+						interval: 1,     //number of step
+						step:     700,  //step duration in ms
+						running:  true   //true if timer is running at instanciation
+					}
+				});
+                
+                $('#example2').qbox({
+                	slide: {
+						effect:    'swing',
+	                 	duration:  500,
+						from:      'all', 
+						by:        'random' 
+					},
+					box: {
+						selector: 'a',  //box jQuery selector
+						rows:     1,     //number of row
+						cols:     3      //number by row
+					},
+					qtime: {
+						interval: 10,
+						step: 100
+					}
+                 });
+                
+				
+				
+				//example3
+				
+				for(var i=0 ; i<401 ; i++){
+					$('<div>').addClass('boxes').colorize().prependTo($('#example3'));
+				}
+				
+				$('#example3').qbox({
+					slide: {
+						duration:  400,
+						from:      'all', 
+						by:        'random' 
+					},    
+					qtime: {
+		                 interval: 7,
+		                 step: 100
+	                },
+					box: {
+						selector: 'div.boxes',  //box jQuery selector
+						rows:     20,     //number of row
+						cols:     20     //number by row
+					}
+				});
+				
+            });
+        </script>
+    </body>
+</html>
