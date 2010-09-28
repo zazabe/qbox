@@ -42,6 +42,8 @@ qbox.prototype.isRunning = function(){
 
 qbox.prototype.init = function(){
 
+	$(this.target).addClass('qboxes');
+
 	this.endedAnimation = 0;
 	
 	this.initBoxesObject();
@@ -68,7 +70,7 @@ qbox.prototype.setOptions = function(options){
 	this.options = $.extend({
 		slide: {
 			effect:    'linear',
-			duration:  1000,
+			duration:  500,
 			from: 'all',     //can be all, top, right, bottom or left
 			by:   'random',  //can be random, asc or desc 
 			custom: null     //define slide position by using a function (override slide.from and slide.by properties)
@@ -79,7 +81,7 @@ qbox.prototype.setOptions = function(options){
 			cols:     3      //number by row
 		},
 		qtime: {
-			interval: 4,     //number of step
+			interval: 2,     //number of step
 			step:     1000,  //step duration in ms
 			running:  true   //true if timer is running at instanciation
 		}
@@ -167,8 +169,8 @@ qbox.prototype.initBoxesPosition = function(){
 	
 	this.walkBoxesMatrice(function(row, col, box){
 		$(box).css({
-			'left': options.box.width  * col,
-			'top' : options.box.height * row
+			'left': (options.box.width  * col) + 'px',
+			'top' : (options.box.height * row) + 'px'
 		});
 	});
 };
@@ -322,8 +324,8 @@ qbox.prototype.initTimer = function(){
 qbox.prototype.resetHiddenBoxsPositions = function(e, data){
 	$(this.boxes.hidden).each(function(index,box){
 		$(box).css({
-			'left'     : -3000,
-			'top'      : -3000
+			'left'     : '-3000px',
+			'top'      : '-3000px'
 		});
 	});	
 };
@@ -396,10 +398,10 @@ qbox.prototype.slideBoxes = function(outsideIndex){
 			
 			switch(outsideBoxParams.anim){
 				case 'left':
-					animation = {'left' : parseInt(eval($(element).position().left + outsideBoxParams.move))};
+					animation = {'left' : (parseInt(eval($(element).position().left + outsideBoxParams.move))) + 'px'};
 					break;
 				case 'top':
-					animation = {'top' : parseInt(eval($(element).position().top + outsideBoxParams.move))};
+					animation = {'top' : (parseInt(eval($(element).position().top + outsideBoxParams.move))) + 'px'};
 					break;
 			}
 			
@@ -512,3 +514,4 @@ $.fn.qbox = function (options){
 	});
 	return qboxInstance;
 };
+
